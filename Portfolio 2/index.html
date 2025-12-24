@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yamah Emmanuel | UI/UX & Product Designer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" ... />
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+  <style>
+  :root {
+    --bg: #000000;
+    --text: #e4e4e7;
+    --accent: #96ada5;
+    --gold: #d4af37;
+    --glass: rgba(255,255,255,0.07);
+    --border: rgba(255,255,255,0.12);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family:'Inter',sans-serif;
+ background: 
+  radial-gradient(circle at 50% 40%, #1a1203 0%, #000000 70%),
+  repeating-linear-gradient(45deg, #0a0a0a 0px, #0a0a0a 1px, #000000 1px, #000000 8px),
+  #000000;    background-attachment:fixed;
+    color:var(--text);
+    overflow-x:hidden;
+  }
+
+  nav {
+    position:fixed;top:0;left:0;right:0;padding:clamp(1rem,3vw,1.8rem) 6%;
+    display:flex;justify-content:space-between;align-items:center;
+    z-index:1000;transition:all .4s;visibility: visible;opacity: 0;animation: show-content 1.2s linear forwards;animation-delay: 1.2s;
+  }
+
+  @keyframes show-content{
+    100%{
+      visibility: visible; opacity: 1;
+    }
+
+  }
+  nav.scrolled{background:rgba(0,0,0,0.95);backdrop-filter:blur(16px);padding:clamp(0.8rem,2vw,1.2rem) 6%;}
+  .logo{font-size:clamp(1.6rem,4vw,2rem);font-weight:800;background:linear-gradient(120deg,var(--accent),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .nav-links a{color:var(--text);text-decoration:none;margin-left:clamp(1rem,3vw,2.5rem);font-weight:500;padding:clamp(0.5rem,1.5vw,0.7rem) clamp(1rem,2vw,1.6rem);border-radius:50px;transition:all .3s;cursor:pointer;font-size:clamp(0.9rem,2vw,1rem);}
+  .nav-links a:hover{background:var(--glass);color:var(--gold);}
+
+  .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0 clamp(3%,6vw,6%);gap:clamp(4rem,8vw,10rem);}
+  .hero-text{text-align:left;}
+  .hi{font-size:clamp(1.8rem,4vw,2.2rem);opacity:0.85;}
+  h1{font-size:clamp(3.5rem,8vw,5.5rem);font-weight:800;line-height:1.1;margin-bottom:1rem;}
+  .name{background:linear-gradient(120deg,var(--accent),var(--gold),#a8d5cd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .title-line{font-size:clamp(1.8rem,5vw,2.4rem);margin:2rem 0;height:70px;}
+  .typing{color:var(--accent);font-weight:600;}
+  .subtitle{font-size:clamp(1.1rem,3vw,1.35rem);opacity:0.9;max-width:520px;line-height:1.8;margin-top:2rem;}
+  .hero-photo{width:100%;max-width:500px;border-radius:28px;border:6px solid rgba(150,173,165,0.2);box-shadow:0 40px 80px rgba(0,0,0,0.7);}
+
+  .description-with-icons {
+  margin-top: 2rem;
+}
+.hero-socials {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 1.8rem;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.social-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(150,173,165,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem; 
+  color: #e0e6ed;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+}
+.social-circle:hover {
+  background: #d4af37;
+  color: #000;
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(212,175,55,0.3);
+  border-color: #d4af37;
+}
+.photo-container .photo-box{
+  position: relative;width: 32vw;height: 32vw;border-radius: 50%;padding: 5px;display: flex;justify-content: center;align-content: center;overflow: hidden;
+}
+.photo-container .photo-box::before,
+.photo-container .photo-box::after{
+  content: ''; position: absolute; width: 700px; height: 500px; background: conic-gradient(transparent,transparent,transparent,#d4af37);transform: rotate(0deg);animation: rotate-border 10s linear infinite;
+}
+.photo-container .photo-box::after{
+  animation-delay: -5s;
+}
+
+@keyframes rotate-border{
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+.photo-container .photo-box .photo-item{
+  position: relative;width: 100%;height: 100%;background: rgb(0, 0, 0);border-radius: 50%;display: flex;justify-content: center;z-index: 1; overflow: hidden;
+}
+.photo-container .photo-box .photo-item img{
+  position: absolute;top: 30px;display: block;width: 85%;object-fit: cover;mix-blend-mode: lighten;
+}
+.hero-photo {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+/* HERO FADE-IN ANIMATION */
+.hero {
+  opacity: 0;
+  visibility: hidden; animation: show-content 0.9s linear forwards; animation-delay: 1.0s;  
+}
+
+@keyframes show-content {
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.skills-main {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* exactly 2 columns always */
+  gap: 2rem;
+  padding: 0;
+  justify-content: center;
+}
+
+/* Optional: smaller gap on mobile if needed */
+@media (max-width: 900px) {
+  .skills-main {
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 880px) {
+  .skills-main {
+    grid-template-columns: 1fr 1fr; /* 1 column on smaller screens */
+    gap: 1.8rem;
+  }
+}
+@media (max-width: 730px) {
+  .skills-main {
+    grid-template-columns: 1fr 1fr; /* 1 column on small screens */
+    gap: 1.5rem;
+  }
+
+  .skill-bar {
+    margin-bottom: 1.5rem;
+    width: 100%; /* full width on small screens */
+    max-width: 250px;
+    height: 7px; /* thinner bar */
+    border-radius: 8px;
+  }
+
+  .skill-bar div {
+    height: 7px;
+    border-radius: 8px;
+  }
+
+  /* Smaller skill names */
+  .skills-left h2, .skills-right h2 {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  /* Smaller percentage text */
+  .skill-bar div span {
+    font-size: 0.9rem;
+    margin-top: -22px;
+    margin-right: -35px;
+  }
+}
+
+.skill-bar{
+  margin-bottom: 2.3rem; background: #38383883;width: 310px;height: 10px;border-radius: 5px;
+}
+
+
+.skill-bar div{
+  height: 10px; border-radius: 5px; width: 50%;background: #d4af37;
+}
+
+.skill-bar div span{
+  float: right;margin-top: -25px;margin-right: -30px; display: flex;justify-content: right;align-items: right;
+}
+
+.skill-bar .figma{
+  width: 95%; animation:figma 2s;
+}
+
+.skill-bar .canva{
+  width: 93%; animation:canva 2s;
+}
+
+.skill-bar .user-research{
+  width: 90%; animation:user-research 2s;
+}
+
+.skill-bar .product-strategy{
+  width: 90%; animation:product-strategy 2s;
+}
+
+.skill-bar .teamwork{
+  width: 95%; animation:teamwork 2s;
+}
+
+.skill-bar .communication{
+  width: 98%; animation:communication 2s;
+}
+
+.menu-icon{
+  wiidth: 25px; cursor: pointer; display: none;
+}
+
+@keyframes figma{
+  0%{
+    width: 0%;
+  }
+  100%{
+    width: 95%;
+  }
+}
+
+@keyframes canva{
+  0%{
+    width: 0%;
+  }
+  100%{
+    width: 93%;
+  }
+}
+
+@keyframes user-research{
+  0%{
+    width: 0%;
+  }
+  100%{
+    width: 93%;
+  }
+}
+
+@keyframes product-strategy{
+  0%{
+    width: 0%;
+  }
+  100%{
+    width: 90%;
+  }
+}
+
+@keyframes teamwork{
+  0%{
+    width: 0%;
+  }
+  100%{
+    width: 93%;
+  }
+}
+
+@keyframes communication{
+  0%{
+    width: 0%;
+  }
+  100%{
+    width: 98%;
+  }
+}
+
+/* ABOUT SECTION - RESPONSIVE LAYOUT */
+/* ABOUT SECTION - RESPONSIVE LAYOUT */
+.about-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Photo left, content right */
+  gap: 4rem; /* Reduced gap for tighter layout (was 6rem) */
+  align-items: start;
+}
+
+.about-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-photo img {
+  width: 100%;
+  max-width: 500px; /* Slightly smaller max-width to pull things up visually */
+}
+
+.about-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.0rem; /* Fixed syntax: was "margin-top: 0.5" */
+  background: linear-gradient(120deg, #d4af37, #c0d6d0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: left;
+}
+
+.skills-title {
+  font-size: 2rem;
+  margin: 2rem 0 1.5rem; /* Reduced top margin from 2.5rem */
+  background: linear-gradient(120deg, #d4af37, #c0d6d0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: left;
+}
+
+.about-text {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  opacity: 0.95;
+  margin-bottom: 2rem;
+  max-width: 680px;
+  text-align: left;
+}
+
+#nav-links{
+  overflow: hidden;transition: 0.5s;
+}
+
+/* Reduce top padding of the entire About section */
+#about {
+  padding-top: 100px !important; /* Reduced from 160px */
+}
+
+/* Responsive: Stack on mobile/tablet */
+@media (max-width: 992px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 3rem; /* Smaller gap on mobile */
+    text-align: center;
+  }
+
+  .about-photo {
+    order: -1; /* Photo on top */
+  }
+
+  .about-content h2, .skills-title {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .about-text {
+    font-size: 1.1rem;
+    line-height: 1.85;
+    margin-bottom: 1.8rem;
+    text-align: center;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  #about {
+    padding-top: 80px !important; /* Even less top space on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .about-photo img {
+    max-width: 380px;
+  }
+
+  .about-content h2, .skills-title {
+    font-size: 2rem;
+  }
+
+  #about {
+    padding-top: 60px !important;
+  }
+}
+
+
+/* Responsive: Stack on mobile/tablet */
+@media (max-width: 992px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    text-align: center;
+  }
+
+  .about-photo {
+    order: -1; /* Photo moves to top */
+  }
+
+  .about-content h2, .skills-title {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .about-text {
+    font-size: 1.1rem;
+    line-height: 1.85;
+    margin-bottom: 1.8rem;
+    text-align: center; /* centered on mobile for balanced look */
+    max-width: 100%; /* full width on small screens */
+    padding: 0 1rem; /* small side padding for edge safety */
+  }
+}
+
+@media (max-width: 480px) {
+  .about-photo img {
+    max-width: 380px;
+  }
+
+  .about-content h2, .skills-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  section {
+    width: 100%;
+    padding: 50px 5%;
+  }
+}
+
+@media( max-width: 900px){
+    nav,
+    nav.sticky{
+        padding: 15px 5%;
+    }
+    section{
+        padding: 50px 5%;
+    }
+    .nav-links a{
+        padding: 8px 15px;
+    }
+    .root{
+       --big-font: 2.2rem;
+       --noemal-font: 1.8rem;
+       --accent: #96ada5;
+       --h1-font: 3rem;
+    }
+    .social-circle{
+        margin-top: 3rem; 
+    }
+    .social-circle {
+    width: 48px;   /* smaller icons */
+    height: 48px;
+    font-size: 1.4rem; /* smaller icon inside */
+    }
+    
+    .subtitle{
+      margin-top: 3rem;
+    }
+}
+
+/* Hide menu icon on large screens */
+#menu-icon {
+  display: none;
+}
+
+/* Show menu icon on small screens */
+@media only screen and (max-width: 900px) {
+  #menu-icon {
+    display: block;
+    transition: all 0.4s ease;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--text);
+    padding: 0.5rem;
+    background: none;
+    border: none;
+  }
+
+  .nav-links {
+    display:  none ! important;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(20, 20, 20, 0.98);
+    text-align: left;
+    padding: 1rem 5%;
+    transition: all 0.445s ease;
+    z-index: 999;
+    border-bottom: 1px solid var(--border);
+  }
+
+  #menu-icon.fa-xmark {
+    transform: rotate(-90deg);
+  }
+
+  .nav-links a {
+   display: block;
+   padding: 1rem 0;
+   font-size: 1rem;
+   margin-left: 0;
+  }
+
+  .nav-links.open {
+    display: flex !important;
+  }
+
+  .title-line {
+   white-space: nowrap;
+   overflow: hidden;
+  }
+}
+
+/* Show nav links on large screens */
+@media (min-width: 901px) {
+  #menu-icon {
+    display: none !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+    position: static;
+    background: transparent;
+    padding: 0;
+    border: none;
+  }
+}
+@media (max-width: 1120px) {
+  .title-line {
+    font-size: clamp(2.2rem, 4vw, 1.2rem);
+  }
+}
+
+@media (max-width: 984px) {
+  .title-line {
+    font-size: clamp(1.6rem, 3vw, 1.0rem);
+  }
+}
+@media (max-width: 721px) {
+  .title-line {
+    font-size: clamp(1.4rem, 3vw, 1.0rem);
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  /* 1. Fix the nav — don't add margin, just adjust padding for mobile */
+  nav {
+    padding: 0.8rem 5% !important; /* Smaller vertical padding */
+    /* Remove any margin you added before */
+    margin: 0 !important;
+  }
+
+  /* When scrolled, keep it compact */
+  nav.scrolled {
+    padding: 0.6rem 5% !important;
+  }
+
+  /* 2. Hero section adjustments */
+    /* HERO SECTION - Photo on top, smaller size, perfect for small phones */
+  .hero {
+    min-height: 100vh;
+    grid-template-columns: 1fr !important;      /* Single column */
+    padding: 100px 5% 80px !important;          /* Space for fixed nav */
+    gap: 3.5rem;                                /* Space between photo and text */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+    /* HERO PHOTO - Smaller and perfectly balanced on small screens */
+  .photo-container {
+    order: -1;                                  /* Keeps photo on top */
+    width: 100%;
+    max-width: 240px !important;                /* Even smaller max size */
+    margin: 0 auto 2rem;
+  }
+
+  .photo-container .photo-box {
+    width: 60vw !important;                     /* Significantly smaller */
+    height: 60vw !important;
+    max-width: 240px !important;
+    max-height: 240px !important;
+    padding: 4px;
+    border: 2px solid rgba(212, 175, 55, 0.3);   /* Subtle gold glow */
+  }
+
+  .photo-container .photo-box .photo-item img {
+    top: 20px;                                  /* Adjust face positioning */
+    width: 82%;
+  }
+
+  /* Text section - full width, centered */
+  .hero-text {
+    order: 2;                                   /* Appears after photo */
+    text-align: center;
+    max-width: 100%;
+    padding: 0 5%;
+  }
+
+  .hi {
+    font-size: 1.4rem !important;
+    opacity: 0.9;
+    margin-bottom: 0.8rem;
+  }
+
+  h1 {
+    font-size: 2rem !important;               /* Strong but not overwhelming */
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .title-line {
+    font-size: 1.5rem !important;
+    margin: 1.8rem 0;
+    height: auto;
+    white-space: normal;
+  }
+
+  .typing {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .subtitle {
+    font-size: 1.1rem !important;
+    max-width: 90%;
+    margin: 2.5rem auto 0;
+    line-height: 1.8;
+    opacity: 0.9;
+  }
+
+  .hero-socials {
+    justify-content: center;
+    gap: 1.8rem;
+    margin-top: 1rem;
+  }
+
+  .social-circle {
+    width: 52px !important;
+    height: 52px !important;
+    font-size: 1.6rem !important;
+  }
+
+  /* Photo container — full width, centered */
+  .photo-container {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .photo-container .photo-box {
+    width: 80vw;
+    height: 80vw;
+    max-width: 320px;
+    max-height: 320px;
+  }
+
+  /* 3. About section */
+  #about {
+    padding: 80px 5% 60px !important;
+  }
+
+  .about-container {
+    gap: 2.5rem;
+    padding: 0 3%;
+  }
+
+  .about-photo img {
+    max-width: 300px;
+  }
+
+  .about-content h2,
+  .skills-title {
+    font-size: 1.5rem;
+  }
+
+  .about-text {
+    font-size: 0.8rem;
+    padding: 0;
+  }
+
+  /* 4. Skills section — make bars full width and smaller */
+  .skills-main {
+    grid-template-columns: 1fr 1fr; /* Force 2 columns even on small screens */
+    gap: 1.2rem; /* Reduce gap between left and right */
+    padding: 0 3%;
+  }
+
+  .skill-bar {
+    width: 100% !important;        /* Take full width of the column */
+    max-width: none !important;     /* Remove the 310px limit */
+    height: 7px;                    /* Thinner bar for mobile */
+    margin-bottom: 1rem;          /* Less vertical space between skills */
+  }
+
+  .skill-bar div {
+    height: 7px;
+    border-radius: 5px;
+  }
+
+  .skills-left p,
+  .skills-right p {
+    font-size: 0.6rem;              /* Smaller labels */
+    margin-bottom: 0.4rem;
+    opacity: 0.9;
+  }
+
+  .skill-bar div span {
+    font-size: 0.5rem !important;   /* Tiny but readable */
+    margin-top: -18px !important;   /* Pull it up a bit */
+    margin-right: -15px !important; /* Pull it left so it fits better */
+  }
+  /* Optional: Slightly reduce the section title size */
+  .skills-title {
+    font-size: 1.3rem !important;
+    margin-bottom: 1rem;
+  }
+
+  /* Make sure the whole skills area is centered */
+  .about-content {
+    text-align: center;
+  }
+
+  .skills-main {
+    justify-content: center;        /* Centers the two columns nicely */
+    max-width: 100%;
+  }
+
+  #projects {
+    padding: 80px 5% 60px !important; /* Reduce vertical padding */
+  }
+
+  #projects h2 {
+    font-size: 2rem !important;      /* Smaller "Selected Works" title */
+    margin-bottom: 2.5rem;
+  }
+
+  /* Target the grid container (the one with inline styles) */
+  #projects > div > div[style*="grid-template-columns"] {
+    grid-template-columns: repeat(2, 1fr) !important; /* Force 2 columns */
+    gap: 1.6rem !important;           /* Tighter gap between cards */
+  }
+
+  /* Make each project card smaller and compact */
+  #projects .project-card, /* if you add a class later */
+  #projects > div > div > div[style*="border-radius: 28px"] {
+    border-radius: 20px !important;   /* Slightly smaller corners */
+    overflow: hidden;
+  }
+
+  /* Card images - smaller height */
+  #projects img {
+    width: 100%;
+    height: 200px !important;         /* Reduced from 280px */
+    object-fit: cover;
+  }
+
+  /* Card content padding and text */
+  #projects > div > div > div > div[style*="padding: 2rem"] {
+    padding: 1.4rem !important;
+  }
+
+  #projects h3 {
+    font-size: 0.8rem !important;    /* Smaller project titles */
+    margin-bottom: 0.3rem;
+    line-height: 1.3;
+  }
+
+  #projects p {
+    font-size: 0.5rem !important;     /* Smaller description */
+    line-height: 1.5;
+    opacity: 0.85;
+    margin-bottom: 1rem;
+  }
+
+  #projects a {
+    font-size: 0.5rem !important;    /* "View Project →" link */
+  }
+
+  /* Optional: Add subtle hover lift only if space allows */
+  #projects [onmouseover] {
+    transition: transform 0.3s ease;
+  }
+  #projects [onmouseover]:hover {
+    transform: translateY(-8px) !important;
+  }
+
+  /* 6. Contact section */
+  #contact {
+    padding: 120px 5% 100px;
+  }
+
+  #contact h2 {
+    font-size: 2rem;
+  }
+
+  #contact > div > p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  /* Form: stack inputs fully */
+  #contactForm {
+    grid-template-columns: 1fr !important;
+    gap: 1.4rem;
+  }
+
+  #contactForm input,
+  #contactForm textarea,
+  #contactForm button {
+    grid-column: 1 / -1;
+  }
+
+  /* Social icons at bottom */
+  #contact [style*="display: flex; gap: 4rem"] {
+    gap: 2.5rem;
+  }
+
+  #contact [style*="display: flex; gap: 4rem"] a {
+    font-size: 2rem;
+  }
+    /* CONTACT SECTION - Optimized for small screens (≤415px) */
+  #contact {
+    padding: 100px 5% 80px !important; /* Less vertical space */
+  }
+
+  #contact h2 {
+    font-size: 2rem !important;      /* Reduced from 4rem */
+    margin-bottom: 1.2rem !important;
+    line-height: 1.2;
+  }
+
+  #contact > div > p {
+    font-size: 0.8rem !important;     /* Smaller, more readable paragraph */
+    max-width: 90% !important;
+    margin: 0 auto 3rem !important;
+    line-height: 1.7;
+    opacity: 0.9;
+  }
+
+  /* Form - make inputs and button more compact */
+  #contactForm {
+    gap: 1.4rem !important;
+    max-width: 100%;
+    padding: 0 5%;
+  }
+
+  #contactForm input,
+  #contactForm textarea {
+    padding: 1.3rem 1.6rem !important;
+    font-size: 1rem !important;
+  }
+
+  #contactForm button {
+    padding: 1.2rem !important;
+    font-size: 1rem !important;
+    font-weight: 600;
+    border-radius: 50px;
+  }
+
+  /* Success message */
+  #successMessage {
+    padding: 1.6rem !important;
+    margin: 0 5% 3rem !important;
+  }
+
+  #successMessage p {
+    font-size: 1.2rem !important;
+  }
+
+  /* Social icons at the bottom - smaller and better spaced */
+  #contact [style*="display: flex; gap: 4rem"] {
+    gap: 2rem !important;             /* Reduced spacing */
+    margin: 4rem 0 2rem !important;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  #contact [style*="display: flex; gap: 4rem"] a {
+    font-size: 2.4rem !important;     /* Was 3rem → perfect for touch */
+  }
+
+  /* Optional: Keep the hover lift effect */
+  #contact [style*="display: flex; gap: 4rem"] a:hover {
+    transform: translateY(-6px);
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  /* === YOUR PREVIOUS RULES HERE (keep everything I gave you before) === */
+
+  /* NEW: Hide the About section photo on small screens */
+  .about-photo {
+    display: none !important;
+  }
+
+  /* Adjust the about container to use full width since photo is gone */
+  .about-container {
+    grid-template-columns: 1fr !important; /* Already 1fr on mobile, but reinforce */
+    gap: 2rem;
+    text-align: center;
+    padding: 0 5%;
+  }
+
+  /* Center the content nicely */
+  .about-content {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about-content h2,
+  .skills-title {
+    text-align: center;
+  }
+
+  .about-text {
+    text-align: center;
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+
+  /* Optional: Reduce top padding a bit more since no photo takes space */
+  #about {
+    padding-top: 70px !important;
+  }
+}
+
+/* Make whole card slightly more interactive on mobile */
+#projects > div > div > div[style*="border-radius: 28px"] {
+  cursor: pointer;
+}
+
+/* Optional: Add subtle overlay on hover/tap */
+#projects a[href^="Images/"] img {
+  transition: transform 0.3s ease;
+}
+#projects a[href^="Images/"] img:hover {
+  transform: scale(1.05);
+}
+
+
+</style>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="logo">Yamah</div>
+    <i id="menu-icon" class="fas fa-bars"></i>
+    <div class="nav-links">
+     <a onclick="gsap.to(window,{duration:1.4,scrollTo:'#home',ease:'power3.inOut'})">Home</a>
+     <a onclick="gsap.to(window,{duration:1.4,scrollTo:'#about',ease:'power3.inOut'})">About</a>
+     <a onclick="gsap.to(window,{duration:1.4,scrollTo:'#projects',ease:'power3.inOut'})">Projects</a>
+     <a onclick="gsap.to(window,{duration:1.4,scrollTo:'#contact',ease:'power3.inOut'})">Contact</a>
+     <a href="https://drive.google.com/file/d/1dh2GpASlhP0-FSVvFcCHMzS6TawiJzSy/view?usp=sharing" target="_blank">Download CV</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+  <div class="hero-text">
+    <p class="hi">Hi, I'm</p>
+    <h1><span class="name">Yamah Emmanuel</span></h1>
+    <p class="title-line">I am a <span class="typing"></span></p>
+    
+    <!-- Description + Icons directly below it -->
+    <div class="description-with-icons">
+      <p class="subtitle">
+        Passionate about turning complex challenges into simple, intuitive experiences. 
+        Self-taught and hands-on, I lead from user research and design to roadmap and launch — 
+        delivering products people love.
+      </p>
+
+      <!-- Social Icons directly under the text -->
+      <div class="hero-socials">
+        <a href="https://wa.me/+2349025913059" target="_blank" class="social-circle" title="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="https://x.com/yamaahhh?s=21" target="_blank" class="social-circle" title="X (Twitter)">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/emmanuel-yamah-7b707224b" target="_blank" class="social-circle" title="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="mailto:emmanuelyamah3@gmail.com" class="social-circle" title="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photo on the right -->
+ <div class="photo-container">
+   <div class="photo-box">
+     <div class="photo-item">
+        <img src="Images/Yamah pic 1.png" alt="Yamah Emmanuel" class="hero-photo">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT ME SECTION - Photo left (bigger), Text + Skills right -->
+<section id="about" style="padding: 160px 6%; background:#000;">
+  <div class="about-container">
+    <!-- Left: Photo -->
+    <div class="about-photo">
+      <img src="Images/Yamah pic 1.png" 
+           alt="Yamah Emmanuel">
+    </div>
+
+    <!-- Right: Text + Skills -->
+    <div class="about-content">
+      <h2>About Me</h2>
+      <p class="about-text">
+       Hi, I’m Yamah Emmanuel — a passionate UI/UX Designer and Product Manager who turns complex problems into simple, beautiful, and intuitive digital experiences. With a deeply user-centered approach, I handle the full product lifecycle — from in-depth research and interaction design to crafting strategic roadmaps, leading cross-functional teams, and guiding products from initial concept to successful launch. Self-taught, hands-on, and driven by solving real problems for real people, I specialize in creating delightful, high-impact experiences that users love.
+      </p>
+      <p class="about-text">
+        I bring strong technical knowledge of HTML, CSS, and JavaScript, allowing me to prototype rapidly, collaborate seamlessly with developers, and ensure pixel-perfect execution from design to code.
+        With a solid background in design and product strategy, I help startups and brands bring bold ideas to life through clean interfaces, thoughtful user flows, and meticulous attention to detail.
+      </p>
+
+      <h2 class="skills-title">My Skills</h2>
+
+      <!-- Your full skills code -->
+      <div class="skills-main">
+        <div class="skills-left">
+          <div class="skills">
+            <p>Figma</p>
+            <div class="skill-bar">
+             <div class="figma"><span>95%</span></div>
+            </div>
+            <p>Canva</p>
+            <div class="skill-bar">
+             <div class="canva"><span>93%</span></div>
+            </div>
+            <p>User research</p>
+            <div class="skill-bar">
+             <div class="user-research"><span>90%</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="skills-right">
+          <div class="skills">
+            <p>Product strategy</p>
+            <div class="skill-bar">
+             <div class="product-strategy"><span>90%</span></div>
+            </div>
+            <p>Teamwork</p>
+            <div class="skill-bar">
+              <div class="teamwork"><span>93%</span></div>
+            </div>
+            <p>Communication</p>
+            <div class="skill-bar">
+             <div class="communication"><span>98%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS SECTION -->
+<section id="projects" style="padding: 160px 6% 100px; background:#000;">
+  <div style="max-width: 1400px; margin: 0 auto;">
+    <h2 style="font-size: 3.8rem; text-align:center; margin-bottom: 5rem; 
+               background: linear-gradient(120deg, #96ada5, #c0d6d0);
+               -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+      Selected Works
+    </h2>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 2.8rem;">
+
+      <!-- 1. PlayStation Red -->
+      <div style="border-radius: 28px; overflow: hidden; background: rgba(255,255,255,0.04); border: 1px solid rgba(150,173,165,0.15); transition: all 0.4s; cursor: pointer;" 
+           onmouseover="this.style.transform='translateY(-16px)'; this.style.boxShadow='0 30px 60px rgba(0,0,0,0.6)'"
+           onmouseout="this.style.transform=''; this.style.boxShadow=''">
+        <a href="Images/Desktop - 2.png" target="_blank" rel="noopener">
+          <img src="Images/Desktop - 2.png" alt="PlayStation 5 Wireless Controller - Red" style="width:100%; height:280px; object-fit:cover; display:block;">
+        </a>
+        <div style="padding: 2rem;">
+          <h3 style="font-size:1.5rem; color:#96ada5; margin-bottom:0.8rem;">PlayStation 5 Wireless Controller - Red</h3>
+          <p style="line-height:1.7; opacity:0.9; font-size:1rem;">
+            A sleek, high-contrast product page focused on the PlayStation DualSense controller. The design uses a powerful red glow to frame the product.
+          </p>
+          <a href="Images/Desktop - 2.png" target="_blank" rel="noopener" style="color:#96ada5; font-weight:600; text-decoration:none; margin-top:1rem; display:inline-block;">
+            View Project →
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. PlayStation Lime -->
+      <div style="border-radius: 28px; overflow: hidden; background: rgba(255,255,255,0.04); border: 1px solid rgba(150,173,165,0.15); transition: all 0.4s; cursor: pointer;" 
+           onmouseover="this.style.transform='translateY(-16px)'; this.style.boxShadow='0 30px 60px rgba(0,0,0,0.6)'"
+           onmouseout="this.style.transform=''; this.style.boxShadow=''">
+        <a href="Images/Desktop - 4.png" target="_blank" rel="noopener">
+          <img src="Images/Desktop - 4.png" alt="PlayStation 5 Wireless Controller - Lime" style="width:100%; height:280px; object-fit:cover; display:block;">
+        </a>
+        <div style="padding: 2rem;">
+          <h3 style="font-size:1.5rem; color:#96ada5; margin-bottom:0.8rem;">PlayStation 5 Wireless Controller - Lime</h3>
+          <p style="line-height:1.7; opacity:0.9; font-size:1rem;">
+            A modern and colorful product showcase with bright lime backlighting and clear feature callouts.
+          </p>
+          <a href="Images/Desktop - 4.png" target="_blank" rel="noopener" style="color:#96ada5; font-weight:600; text-decoration:none; margin-top:1rem; display:inline-block;">
+            View Project →
+          </a>
+        </div>
+      </div>
+
+      <!-- 3. Greenmind Plants -->
+      <div style="border-radius: 28px; overflow: hidden; background: rgba(255,255,255,0.04); border: 1px solid rgba(150,173,165,0.15); transition: all 0.4s; cursor: pointer;" 
+           onmouseover="this.style.transform='translateY(-16px)'; this.style.boxShadow='0 30px 60px rgba(0,0,0,0.6)'"
+           onmouseout="this.style.transform=''; this.style.boxShadow=''">
+        <a href="Images/Landing Page.png" target="_blank" rel="noopener">
+          <img src="Images/Landing Page.png" alt="Greenmind Plants" style="width:100%; height:280px; object-fit:cover; display:block;">
+        </a>
+        <div style="padding: 2rem;">
+          <h3 style="font-size:1.5rem; color:#96ada5; margin-bottom:0.8rem;">Greenmind Plants</h3>
+          <p style="line-height:1.7; opacity:0.9; font-size:1rem;">
+            A refreshing, conversion-focused e-commerce landing page with light, airy aesthetic and clean typography.
+          </p>
+          <a href="Images/Landing Page.png" target="_blank" rel="noopener" style="color:#96ada5; font-weight:600; text-decoration:none; margin-top:1rem; display:inline-block;">
+            View Project →
+          </a>
+        </div>
+      </div>
+
+      <!-- 4. Nike Air Monarch IV -->
+      <div style="border-radius: 28px; overflow: hidden; background: rgba(255,255,255,0.04); border: 1px solid rgba(150,173,165,0.15); transition: all 0.4s; cursor: pointer;" 
+           onmouseover="this.style.transform='translateY(-16px)'; this.style.boxShadow='0 30px 60px rgba(0,0,0,0.6)'"
+           onmouseout="this.style.transform=''; this.style.boxShadow=''">
+        <a href="Images/Navy Blue shoe.png" target="_blank" rel="noopener">
+          <img src="Images/Navy Blue shoe.png" alt="Nike Air Monarch IV" style="width:100%; height:280px; object-fit:cover; display:block;">
+        </a>
+        <div style="padding: 2rem;">
+          <h3 style="font-size:1.5rem; color:#96ada5; margin-bottom:0.8rem;">Nike Air Monarch IV</h3>
+          <p style="line-height:1.7; opacity:0.9; font-size:1rem;">
+            A premium, detail-oriented product display page for the Nike Air Monarch IV. The deep navy background enhances the visual prominence of the shoe.
+          </p>
+          <a href="Images/Navy Blue shoe.png" target="_blank" rel="noopener" style="color:#96ada5; font-weight:600; text-decoration:none; margin-top:1rem; display:inline-block;">
+            View Project →
+          </a>
+        </div>
+      </div>
+
+      <!-- 5. Nike Air Max 90 -->
+      <div style="border-radius: 28px; overflow: hidden; background: rgba(255,255,255,0.04); border: 1px solid rgba(150,173,165,0.15); transition: all 0.4s; cursor: pointer;" 
+           onmouseover="this.style.transform='translateY(-16px)'; this.style.boxShadow='0 30px 60px rgba(0,0,0,0.6)'"
+           onmouseout="this.style.transform=''; this.style.boxShadow=''">
+        <a href="Images/MacBook Pro 16_ - 1.png" target="_blank" rel="noopener">
+          <img src="Images/MacBook Pro 16_ - 1.png" alt="Nike Air Max 90" style="width:100%; height:280px; object-fit:cover; display:block;">
+        </a>
+        <div style="padding: 2rem;">
+          <h3 style="font-size:1.5rem; color:#96ada5; margin-bottom:0.8rem;">Nike Air Max 90</h3>
+          <p style="line-height:1.7; opacity:0.9; font-size:1rem;">
+            A minimalist and sophisticated e-commerce product page highlighting the Nike Air Max 90 with a muted, neutral palette.
+          </p>
+          <a href="Images/MacBook Pro 16_ - 1.png" target="_blank" rel="noopener" style="color:#96ada5; font-weight:600; text-decoration:none; margin-top:1rem; display:inline-block;">
+            View Project →
+          </a>
+        </div>
+      </div>
+
+      <!-- 6. Fast Motors - Purple Apex -->
+      <div style="border-radius: 28px; overflow: hidden; background: rgba(255,255,255,0.04); border: 1px solid rgba(150,173,165,0.15); transition: all 0.4s; cursor: pointer;" 
+           onmouseover="this.style.transform='translateY(-16px)'; this.style.boxShadow='0 30px 60px rgba(0,0,0,0.6)'"
+           onmouseout="this.style.transform=''; this.style.boxShadow=''">
+        <a href="Images/purple.png" target="_blank" rel="noopener">
+          <img src="Images/purple.png" alt="Fast Motors - Purple Apex" style="width:100%; height:280px; object-fit:cover; display:block;">
+        </a>
+        <div style="padding: 2rem;">
+          <h3 style="font-size:1.5rem; color:#96ada5; margin-bottom:0.8rem;">Fast Motors - Purple Apex</h3>
+          <p style="line-height:1.7; opacity:0.9; font-size:1rem;">
+            A luxurious and bold promotional page for a performance vehicle. The deep purple theme conveys exclusivity and power.
+          </p>
+          <a href="Images/purple.png" target="_blank" rel="noopener" style="color:#96ada5; font-weight:600; text-decoration:none; margin-top:1rem; display:inline-block;">
+            View Project →
+          </a>
+        </div>
+      </div>
+
+      <!-- 7. Fast Motors - Pink Blitz -->
+      <div style="border-radius: 28px; overflow: hidden; background: rgba(255,255,255,0.04); border: 1px solid rgba(150,173,165,0.15); transition: all 0.4s; cursor: pointer;" 
+           onmouseover="this.style.transform='translateY(-16px)'; this.style.boxShadow='0 30px 60px rgba(0,0,0,0.6)'"
+           onmouseout="this.style.transform=''; this.style.boxShadow=''">
+        <a href="Images/pink.png" target="_blank" rel="noopener">
+          <img src="Images/pink.png" alt="Fast Motors - Pink Blitz" style="width:100%; height:280px; object-fit:cover; display:block;">
+        </a>
+        <div style="padding: 2rem;">
+          <h3 style="font-size:1.5rem; color:#96ada5; margin-bottom:0.8rem;">Fast Motors - Pink Blitz</h3>
+          <p style="line-height:1.7; opacity:0.9; font-size:1rem;">
+            A vibrant and audacious promotional microsite showcasing a luxury sports car with a dominant pink hue.
+          </p>
+          <a href="Images/pink.png" target="_blank" rel="noopener" style="color:#96ada5; font-weight:600; text-decoration:none; margin-top:1rem; display:inline-block;">
+            View Project →
+          </a>
+        </div>
+      </div>
+
+      <!-- 8. Nature's Fizz -->
+      <div style="border-radius: 28px; overflow: hidden; background: rgba(255,255,255,0.04); border: 1px solid rgba(150,173,165,0.15); transition: all 0.4s; cursor: pointer;" 
+           onmouseover="this.style.transform='translateY(-16px)'; this.style.boxShadow='0 30px 60px rgba(0,0,0,0.6)'"
+           onmouseout="this.style.transform=''; this.style.boxShadow=''">
+        <a href="Images/blue menu.png" target="_blank" rel="noopener">
+          <img src="Images/blue menu.png" alt="Nature's Fizz" style="width:100%; height:280px; object-fit:cover; display:block;">
+        </a>
+        <div style="padding: 2rem;">
+          <h3 style="font-size:1.5rem; color:#96ada5; margin-bottom:0.8rem;">Nature's Fizz</h3>
+          <p style="line-height:1.7; opacity:0.9; font-size:1rem;">
+            An intriguing cool-toned beverage landing page with dynamic blue background and bold "FIZZ" typography.
+          </p>
+          <a href="Images/blue menu.png" target="_blank" rel="noopener" style="color:#96ada5; font-weight:600; text-decoration:none; margin-top:1rem; display:inline-block;">
+            View Project →
+          </a>
+        </div>
+      </div>
+
+      <!-- 9. Monster Energy - Original -->
+      <div style="border-radius: 28px; overflow: hidden; background: rgba(255,255,255,0.04); border: 1px solid rgba(150,173,165,0.15); transition: all 0.4s; cursor: pointer;" 
+           onmouseover="this.style.transform='translateY(-16px)'; this.style.boxShadow='0 30px 60px rgba(0,0,0,0.6)'"
+           onmouseout="this.style.transform=''; this.style.boxShadow=''">
+        <a href="Images/Desktop - 26.png" target="_blank" rel="noopener">
+          <img src="Images/Desktop - 26.png" alt="Monster Energy - Original" style="width:100%; height:280px; object-fit:cover; display:block;">
+        </a>
+        <div style="padding: 2rem;">
+          <h3 style="font-size:1.5rem; color:#96ada5; margin-bottom:0.8rem;">Monster Energy - Original</h3>
+          <p style="line-height:1.7; opacity:0.9; font-size:1rem;">
+            A dark, gritty product detail design with shadowed green gradient and carousel for the classic Monster can.
+          </p>
+          <a href="Images/Desktop - 26.png" target="_blank" rel="noopener" style="color:#96ada5; font-weight:600; text-decoration:none; margin-top:1rem; display:inline-block;">
+            View Project →
+          </a>
+        </div>
+      </div>
+
+      <!-- 10. Monster Energy - Punch -->
+      <div style="border-radius: 28px; overflow: hidden; background: rgba(255,255,255,0.04); border: 1px solid rgba(150,173,165,0.15); transition: all 0.4s; cursor: pointer;" 
+           onmouseover="this.style.transform='translateY(-16px)'; this.style.boxShadow='0 30px 60px rgba(0,0,0,0.6)'"
+           onmouseout="this.style.transform=''; this.style.boxShadow=''">
+        <a href="Images/Desktop - 7.png" target="_blank" rel="noopener">
+          <img src="Images/Desktop - 7.png" alt="Monster Energy - Punch" style="width:100%; height:280px; object-fit:cover; display:block;">
+        </a>
+        <div style="padding: 2rem;">
+          <h3 style="font-size:1.5rem; color:#96ada5; margin-bottom:0.8rem;">Monster Energy - Punch</h3>
+          <p style="line-height:1.7; opacity:0.9; font-size:1rem;">
+            A high-energy immersive product page with intense red palette to create urgency and drive action.
+          </p>
+          <a href="Images/Desktop - 7.png" target="_blank" rel="noopener" style="color:#96ada5; font-weight:600; text-decoration:none; margin-top:1rem; display:inline-block;">
+            View Project →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" style="padding: 180px 6% 140px; background: #000; position: relative; overflow: hidden;">
+  <div style="position: absolute; inset: 0; background: radial-gradient(circle at 80% 20%, rgba(150,173,165,0.12), transparent 50%); pointer-events: none;"></div>
+  
+  <div style="max-width: 1000px; margin: 0 auto; text-align: center; position: relative; z-index: 2;">
+    <h2 style="font-size: 4rem; margin-bottom: 1.5rem;
+               background: linear-gradient(120deg, #96ada5, #c0d6d0);
+               -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+      Let's Build Something Amazing
+    </h2>
+    <p style="font-size: 1.4rem; opacity: 0.9; max-width: 660px; margin: 0 auto 4rem; line-height: 1.8;">
+      I'm currently open for freelance projects, full-time roles, or just a good chat about design & product.
+    </p>
+
+    <!-- Contact Form -->
+    <form id="contactForm" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; max-width: 840px; margin: 0 auto 4rem;">
+      <input type="text" name="name" placeholder="Your Name" required style="padding: 1.4rem 1.8rem; background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 16px; color: var(--text); font-size: 1rem; backdrop-filter: blur(10px); transition: all 0.3s;" onfocus="this.style.borderColor='var(--accent)'; this.style.background='rgba(150,173,165,0.1)'" onblur="this.style.borderColor='var(--border)'; this.style.background='rgba(255,255,255,0.06)'">
+
+      <input type="email" name="email" placeholder="Your Email" required style="padding: 1.4rem 1.8rem; background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 16px; color: var(--text); font-size: 1rem; backdrop-filter: blur(10px); transition: all 0.3s;" onfocus="this.style.borderColor='var(--accent)'; this.style.background='rgba(150,173,165,0.1)'" onblur="this.style.borderColor='var(--border)'; this.style.background='rgba(255,255,255,0.06)'">
+
+      <input type="text" name="subject" placeholder="Subject" required style="grid-column: span 2; padding: 1.4rem 1.8rem; background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 16px; color: var(--text); font-size: 1rem; backdrop-filter: blur(10px); transition: all 0.3s;" onfocus="this.style.borderColor='var(--accent)'; this.style.background='rgba(150,173,165,0.1)'" onblur="this.style.borderColor='var(--border)'; this.style.background='rgba(255,255,255,0.06)'">
+
+      <textarea name="message" rows="6" placeholder="Your Message" required style="grid-column: span 2; padding: 1.6rem 1.8rem; background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 16px; color: var(--text); font-size: 1rem; resize: none; backdrop-filter: blur(10px); transition: all 0.3s;" onfocus="this.style.borderColor='var(--accent)'; this.style.background='rgba(150,173,165,0.1)'" onblur="this.style.borderColor='var(--border)'; this.style.background='rgba(255,255,255,0.06)'"></textarea>
+
+      <button type="submit" style="grid-column: span 2; padding: 1.4rem; background: var(--accent); color: #000; font-weight: 700; font-size: 1.1rem; border: none; border-radius: 50px; cursor: pointer; transition: all 0.4s;">
+        Send Message
+      </button>
+    </form>
+
+    <!-- Success Message -->
+    <div id="successMessage" style="display: none; padding: 2rem; background: rgba(150,173,165,0.15); border: 1px solid var(--accent); border-radius: 20px; max-width: 600px; margin: 0 auto 3rem;">
+      <p style="color: var(--accent); font-size: 1.3rem; font-weight: 600;">Message sent! I'll reply ASAP</p>
+    </div>
+
+    <!-- Socials -->
+<div style="display: flex; gap: 4rem; justify-content: center; margin: 5rem 0 3rem;">
+  <!-- X/Twitter -->
+  <a href="https://x.com/yamaahhh?s=21" target="_blank" style="color:#e0e6ed; font-size:3rem; transition:all .4s;" 
+     onmouseover="this.style.color='#96ada5'; this.style.transform='translateY(-6px)'" 
+     onmouseout="this.style.color='#e0e6ed'; this.style.transform='translateY(0)'">
+    <i class="fa-brands fa-x-twitter"></i>
+  </a>
+
+  <!-- LinkedIn -->
+  <a href="https://www.linkedin.com/in/emmanuel-yamah-7b707224b" target="_blank" style="color:#e0e6ed; font-size:3rem; transition:all .4s;" 
+     onmouseover="this.style.color='#96ada5'; this.style.transform='translateY(-6px)'" 
+     onmouseout="this.style.color='#e0e6ed'; this.style.transform='translateY(0)'">
+    <i class="fa-brands fa-linkedin-in"></i>
+  </a>
+
+  <!-- WhatsApp / Phone -->
+  <a href="https://wa.me/+2349025913059" target="_blank" title="Chat on WhatsApp" style="color:#e0e6ed; font-size:3rem; transition:all .4s;" 
+     onmouseover="this.style.color='#25D366'; this.style.transform='translateY(-6px)'" 
+     onmouseout="this.style.color='#e0e6ed'; this.style.transform='translateY(0)'">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Email -->
+  <a href="mailto:emmanuelyamah3@gmail.com" style="color:#e0e6ed; font-size:3rem; transition:all .4s;" 
+     onmouseover="this.style.color='#96ada5'; this.style.transform='translateY(-6px)'" 
+     onmouseout="this.style.color='#e0e6ed'; this.style.transform='translateY(0)'">
+    <i class="fa-solid fa-envelope"></i>
+  </a>
+</div>
+
+    <p style="opacity: 0.6; font-size: 0.95rem;">
+      © Designed and developed by Yamah Emmanuel
+    </p>
+  </div>
+</section>
+
+<script>
+// Real Formspree submission (your endpoint)
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  const form = this;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalText = submitBtn.innerHTML;
+  
+  submitBtn.innerHTML = 'Sending...';
+  submitBtn.disabled = true;
+  
+  const formData = new FormData(form);
+  
+  try {
+    const response = await fetch('https://formspree.io/f/manrdvzg', {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      form.style.display = 'none';
+      document.getElementById('successMessage').style.display = 'block';
+    } else {
+      throw new Error('Network error');
+    }
+  } catch (error) {
+    alert('Oops! Something went wrong. Email me directly at emmanuelyamah3@gmail.com');
+    submitBtn.innerHTML = originalText;
+    submitBtn.disabled = false;
+  }
+});
+</script>
+
+  <script>
+  // Typing animation
+  const roles = ["UI/UX Designer", "Product Manager"];
+  let i = 0, j = 0, deleting = false;
+  const el = document.querySelector(".typing");
+
+  function type() {
+    const word = roles[i];
+    el.textContent = deleting ? word.substring(0, j - 1) : word.substring(0, j + 1);
+    deleting ? j-- : j++;
+
+    if (!deleting && j === word.length) {
+      setTimeout(() => deleting = true, 2200);
+    } else if (deleting && j === 0) {
+      deleting = false;
+      i = (i + 1) % roles.length;
+    }
+    setTimeout(type, deleting ? 80 : 140);
+  }
+  setTimeout(type, 1200);
+
+  // Nav scroll effect
+  window.addEventListener("scroll", () => {
+    document.getElementById("nav").classList.toggle("scrolled", window.scrollY > 100);
+  });
+
+  // Mobile menu toggle
+  const menuIcon = document.querySelector("#menu-icon");
+  const navLinks = document.querySelector(".nav-links");
+
+  menuIcon.onclick = () => {
+    menuIcon.classList.toggle("fa-xmark");
+    navLinks.classList.toggle("open");
+  };
+
+  window.onscroll = () => {
+    menuIcon.classList.remove("fa-xmark");
+    navLinks.classList.remove("open");
+  };
+
+  // === GSAP ANIMATIONS (Clean & Focused) ===
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Hero entrance - smooth and elegant
+  gsap.from(".hero-text > *", {
+    y: 60,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.3,
+    ease: "power3.out",
+    delay: 0.5
+  });
+
+  gsap.from(".photo-container", {
+    scale: 0.8,
+    opacity: 0,
+    duration: 1.2,
+    ease: "power3.out",
+    delay: 1
+  });
+
+  // About section - subtle fade in
+  gsap.from(".about-content h2, .about-text", {
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.3,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: "#about",
+      start: "top 80%",
+      toggleActions: "play none none reverse"
+    }
+  });
+
+  // Project cards - beautiful staggered entrance
+  gsap.utils.toArray("#projects > div > div > div[style*='border-radius: 28px']").forEach((card, i) => {
+    gsap.from(card, {
+      y: 80,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out",
+      delay: i * 0.1,
+      scrollTrigger: {
+        trigger: card,
+        start: "top 85%",
+        toggleActions: "play none none reverse"
+      }
+    });
+  });
+
+    // === SMOOTH SKILL BAR ANIMATION ONLY (FIXED - ONLY TRIGGERS IN ABOUT SECTION) ===
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils.toArray(".skill-bar div").forEach((bar) => {
+    let targetWidth = "90%"; // fallback
+    if (bar.classList.contains("figma")) targetWidth = "95%";
+    else if (bar.classList.contains("canva")) targetWidth = "93%";
+    else if (bar.classList.contains("user-research")) targetWidth = "90%";
+    else if (bar.classList.contains("product-strategy")) targetWidth = "90%";
+    else if (bar.classList.contains("teamwork")) targetWidth = "93%";
+    else if (bar.classList.contains("communication")) targetWidth = "98%";
+
+    // Start at 0%
+    bar.style.width = "0%";
+
+    gsap.to(bar, {
+      width: targetWidth,
+      duration: 2.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".skills-main",           // Trigger only when the entire skills container is in view
+        start: "top 80%",                  // Start when top of skills section hits 80% of viewport
+        end: "bottom 20%",                 // End when bottom leaves view
+        toggleActions: "play none none reverse",
+        // Optional: Debug (remove later)
+        // markers: true
+      }
+    });
+
+    // Percentage label fade-in
+    const span = bar.querySelector("span");
+    if (span) {
+      span.style.opacity = "0";
+      gsap.to(span, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: 1.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".skills-main",
+          start: "top 80%",
+          toggleActions: "play none none reverse"
+        }
+      });
+    }
+  });
+</script>
+</body>
+</html>
